@@ -14,7 +14,7 @@
     @if (Model.Count() > 0)
     {
         <table class="table table-bordered table-striped" style="width:100%">
-            <thead>
+           @* <thead>
                 <tr>
                     <th>
                         Name
@@ -23,14 +23,19 @@
                         Breed
                     </th>
                 </tr>
-            </thead>
+            </thead>*@
             <tbody>
                 @foreach(var obj in Model)
                 {
                 <tr>
-                    <td width="50%">@obj.Name</td>
-                    <td width="30%">@obj.Breed</td>
-                    <td></td>
+     
+                    <td width="20%"><img src="~\images\image1.jpg" alt=""></td>
+                    <td width="20%">@obj.Name</td>
+                    <td width="15%">@obj.Breed</td>
+                    <td width="10%">@obj.Age months</td>
+                    <td width="10%">@obj.Gender</td>
+                    <td width="10%">@obj.Size</td>
+                    <td width="15%">@obj.Status</td>
                 </tr>
                 }
             </tbody>
