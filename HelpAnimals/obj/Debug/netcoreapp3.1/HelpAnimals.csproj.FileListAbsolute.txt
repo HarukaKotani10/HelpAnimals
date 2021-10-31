@@ -424,3 +424,4 @@ C:\Users\17789\source\repos\HelpAnimals\HelpAnimals\obj\Debug\netcoreapp3.1\Help
 C:\Users\17789\source\repos\HelpAnimals\HelpAnimals\obj\Debug\netcoreapp3.1\HelpAnimals.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\17789\source\repos\HelpAnimals\HelpAnimals\obj\Debug\netcoreapp3.1\HelpAnimals.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\17789\source\repos\HelpAnimals\HelpAnimals\obj\Debug\netcoreapp3.1\Razor\Views\Dogs\Index.cshtml.g.cs
+C:\Users\17789\source\repos\HelpAnimals\HelpAnimals\obj\Debug\netcoreapp3.1\Razor\Views\Dogs\Create.cshtml.g.cs

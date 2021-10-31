@@ -22,5 +22,21 @@ namespace HelpAnimals.Controllers
             IEnumerable<Dogs> objList = _db.Dogs;
             return View(objList);
         }
+
+        // GET - CREATE
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST - CREATE
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Dogs obj)
+        {
+            _db.Dogs.Add(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
