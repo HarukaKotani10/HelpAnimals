@@ -5,16 +5,20 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using HelpAnimals.Data;
 using HelpAnimals.Models;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace HelpAnimals.Controllers
 {
     public class DogsController : Controller
     {
         private readonly ApplicationDbContext _db;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public DogsController(ApplicationDbContext db)
+        public DogsController(ApplicationDbContext db, IWebHostEnvironment hostEnvironment)
         {
             _db = db;
+            _hostEnvironment = hostEnvironment;
         }
 
         public IActionResult Index()
@@ -34,6 +38,9 @@ namespace HelpAnimals.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Dogs obj)
         {
+/*            string wwwRootPath = _hostEnvironment.WebRootPath;
+            string fileName = Path.GetFileNameWithoutExtension(imageModel.ImageFile.FileName);*/
+
             _db.Dogs.Add(obj);
             _db.SaveChanges();
             return RedirectToAction("Index");
