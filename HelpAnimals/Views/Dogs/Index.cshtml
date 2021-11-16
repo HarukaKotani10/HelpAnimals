@@ -30,8 +30,8 @@
                 @foreach(var obj in Model)
                 {
                 <tr>
-     
-                    <td width="20%"><img src="~\images\image1.jpg" alt=""></td>
+
+                    <td width="20%"><img src="@("/image/" + obj.ImageName)" asp-append-version="true" width="200px" height="200px"></td>
                     <td width="20%">@obj.Name</td>
                     <td width="15%">@obj.Breed</td>
                     <td width="10%">@obj.Age months</td>

@@ -36,13 +36,21 @@ namespace HelpAnimals.Controllers
         // POST - CREATE
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Dogs obj)
+        public async Task<IActionResult> Create([Bind("Id, Name, Breed, Age, Gender, Size, Status, ImageName, ImageFile")] Dogs obj)
         {
-/*            string wwwRootPath = _hostEnvironment.WebRootPath;
-            string fileName = Path.GetFileNameWithoutExtension(imageModel.ImageFile.FileName);*/
+            string wwwRootPath = _hostEnvironment.WebRootPath;
+            string fileName = Path.GetFileNameWithoutExtension(obj.ImageFile.FileName);
+            string extension = Path.GetExtension(obj.ImageFile.FileName);
+            obj.ImageName=fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+            string path = Path.Combine(wwwRootPath + "/Image/", fileName);
+            using (var fileStream = new FileStream(path, FileMode.Create))
+            {
+                await obj.ImageFile.CopyToAsync(fileStream);
+            }
+
 
             _db.Dogs.Add(obj);
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
     }

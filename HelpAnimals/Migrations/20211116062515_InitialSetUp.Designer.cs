@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HelpAnimals.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211022000536_addDogsToDatabase")]
-    partial class addDogsToDatabase
+    [Migration("20211116062515_InitialSetUp")]
+    partial class InitialSetUp
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,6 +34,9 @@ namespace HelpAnimals.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Gender")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")

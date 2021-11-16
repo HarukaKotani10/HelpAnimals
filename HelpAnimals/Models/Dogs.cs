@@ -18,8 +18,9 @@ namespace HelpAnimals.Models
         public string Gender { set; get; }
         public string Size { set; get; }
         public string Status { set; get; }
+        public string ImageName { set; get; }
         [NotMapped]
-        public IFormFile Image { set; get; }
+        public IFormFile ImageFile { set; get; }
 
     }
 }
