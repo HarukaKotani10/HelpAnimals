@@ -15,7 +15,7 @@
     <br /><br />
     @if (Model.Count() > 0)
     {
-        <table class="table table-bordered table-striped" style="width:100%">
+        <table class="table" style="width:100%">
            @* <thead>
                 <tr>
                     <th>
@@ -31,9 +31,12 @@
                 {
                 <tr>
 
-                    <td width="20%"><img src="@("/image/" + obj.ImageName)" asp-append-version="true" width="200px" height="200px"></td>
-                    <td width="20%">@obj.Name</td>
-                    <td width="15%">@obj.Breed</td>
+                    
+                        <td rowspan="2" width="20%"><img src="@("/image/" + obj.ImageName)" asp-append-version="true" width="230px" height="200px"></td>
+                        <td width="20%" colspan="5" class="primary"><h4>@obj.Name</h4></td>
+                </tr>
+                    <tr>
+                    <td width="15%" >@obj.Breed</td>
                     <td width="10%">@obj.Age months</td>
                     <td width="10%">@obj.Gender</td>
                     <td width="10%">@obj.Size</td>
