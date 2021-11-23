@@ -7,6 +7,7 @@ using HelpAnimals.Data;
 using HelpAnimals.Models;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.EntityFrameworkCore;
 
 namespace HelpAnimals.Controllers
 {
@@ -52,6 +53,55 @@ namespace HelpAnimals.Controllers
             _db.Dogs.Add(obj);
             await _db.SaveChangesAsync();
             return RedirectToAction("Index");
+        }
+
+        // GET - EDIT
+        public IActionResult Edit(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var obj = _db.Dogs.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            return View(obj);
+        }
+
+        // POST - EDIT
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Dogs obj)
+        {
+            var existingDog = _db.Dogs.FirstOrDefault(s => s.Id == obj.Id);
+            if (obj.ImageFile != null)
+            {
+                _db.Dogs.Add(existingDog);
+                //_db.Entry(existingStudent).State = EntityState.Modified;
+                _db.Dogs.Update(existingDog); //You can also use this. Comment out the upper two lines
+                _db.SaveChanges();
+            }
+            else
+            {
+                // updating student.
+                _db.Dogs.Attach(existingDog);
+                _db.Entry(existingDog).State = EntityState.Modified;
+                _db.Entry(existingDog).Property(x => x.ImageName).IsModified = false;
+                _db.SaveChanges();
+            }
+
+            /* if (ModelState.IsValid)
+             {
+                 _db.Dogs.Update(obj);
+                 _db.SaveChanges();
+                 return RedirectToAction("Index");
+             }
+
+             return View(obj);*/
+
+            return View(obj);
         }
     }
 }

@@ -425,3 +425,4 @@ C:\Users\17789\source\repos\HelpAnimals\HelpAnimals\obj\Debug\netcoreapp3.1\stat
 C:\Users\17789\source\repos\HelpAnimals\HelpAnimals\obj\Debug\netcoreapp3.1\HelpAnimals.dll
 C:\Users\17789\source\repos\HelpAnimals\HelpAnimals\obj\Debug\netcoreapp3.1\HelpAnimals.pdb
 C:\Users\17789\source\repos\HelpAnimals\HelpAnimals\obj\Debug\netcoreapp3.1\HelpAnimals.genruntimeconfig.cache
+C:\Users\17789\source\repos\HelpAnimals\HelpAnimals\obj\Debug\netcoreapp3.1\Razor\Views\Dogs\Edit.cshtml.g.cs
